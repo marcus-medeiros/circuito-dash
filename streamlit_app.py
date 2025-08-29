@@ -52,7 +52,7 @@ ax.plot([4,4],[3,2.6], color="red", lw=2)
 # Linha de conexão
 ax.plot([3,5],[2.6,2.6], color="red", lw=2)
 
-bloco(ax, 3, 2.6, w=1.5, label="Xm", r = 90)
+bloco(ax, 3, 2.6, w=1.5, label="Xm", rot = 90)
 
 # Ramo paralelo (cima)
 bloco(ax, 3.5, 3, w=1.5, label=z3)
