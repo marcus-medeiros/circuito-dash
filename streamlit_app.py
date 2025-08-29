@@ -25,7 +25,7 @@ ax.axis("off")
 
 # Fonte
 ax.plot([0,0],[0,2], color="black", lw=0)
-ax.text(0.0,1,"V = {V}, 60Hz", va="center")
+ax.text(0.0,1,{"V = ", V, "/n60Hz", va="center")
 
 # Série
 bloco(ax, 0, 2, w=1.5, label=z1)
