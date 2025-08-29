@@ -1,38 +1,47 @@
 import streamlit as st
-import schemdraw
-import schemdraw.elements as elm
+import matplotlib.pyplot as plt
 
-st.title("🔌 Montagem de Circuitos Elétricos com Streamlit")
+st.title("🔋 Montagem de Circuitos Elétricos com Matplotlib")
 
-st.sidebar.header("Escolha os Componentes")
-
-# Opções de componentes
+# Sidebar para escolher elementos
 resistores = st.sidebar.slider("Quantidade de Resistores", 0, 3, 2)
 capacitores = st.sidebar.slider("Quantidade de Capacitores", 0, 2, 1)
-fontes = st.sidebar.selectbox("Fonte de Alimentação", ["Nenhuma", "VCC", "Fonte AC"])
+fonte = st.sidebar.selectbox("Fonte", ["Nenhuma", "VCC", "AC"])
 
-st.write("### Circuito Gerado:")
+fig, ax = plt.subplots(figsize=(6,4))
+ax.set_xlim(0,10)
+ax.set_ylim(0,6)
+ax.axis("off")
 
-# Desenha o circuito com schemdraw
-with schemdraw.Drawing() as d:
-    # Fonte
-    if fontes == "VCC":
-        d += elm.SourceV().up().label("VCC")
-    elif fontes == "Fonte AC":
-        d += elm.SourceSin().up().label("AC")
-    else:
-        d += elm.Line().up()
+x = 1
+y = 3
 
-    # Resistores
-    for i in range(resistores):
-        d += elm.Resistor().right().label(f"R{i+1}")
+# Desenhar a fonte
+if fonte == "VCC":
+    ax.plot([x, x], [y-1, y+1], color="red", lw=2)
+    ax.text(x-0.3, y+1.2, "VCC", color="red")
+elif fonte == "AC":
+    circ = plt.Circle((x, y), 0.5, fill=False, color="blue", lw=2)
+    ax.add_patch(circ)
+    ax.text(x-0.3, y+1.2, "AC", color="blue")
+x += 2
 
-    # Capacitores
-    for i in range(capacitores):
-        d += elm.Capacitor().down().label(f"C{i+1}")
+# Resistores
+for i in range(resistores):
+    ax.plot([x, x+2], [y, y], color="black", lw=2)
+    ax.text(x+1, y+0.3, f"R{i+1}")
+    x += 2
 
-    d += elm.Line().left().to(d.here - (len(d.elements) - 1, 0))
+# Capacitores
+for i in range(capacitores):
+    ax.plot([x, x], [y-0.5, y+0.5], color="black", lw=2)
+    ax.plot([x+0.5, x+0.5], [y-0.5, y+0.5], color="black", lw=2)
+    ax.text(x+0.25, y+0.7, f"C{i+1}")
+    x += 2
 
-    st.image(d.get_imagedata(), caption="Circuito Montado")
+# Fechar o circuito (linha de retorno)
+ax.plot([x, x], [y, 1], color="black", lw=2)
+ax.plot([x, 1], [1, 1], color="black", lw=2)
+ax.plot([1, 1], [1, y], color="black", lw=2)
 
-st.success("✅ Circuito montado com sucesso!")
+st.pyplot(fig)
