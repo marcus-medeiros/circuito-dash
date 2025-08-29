@@ -10,7 +10,8 @@ z3 = st.text_input("Impedância paralelo (ramo superior 1)", "1H")
 z4 = st.text_input("Impedância paralelo (ramo superior 2)", "1kΩ")
 z5 = st.text_input("Impedância paralelo (ramo inferior 1)", "1H")
 z6 = st.text_input("Impedância paralelo (ramo inferior 2)", "1kΩ")
-V = 220;
+V = 220
+f = 60
 
 def bloco(ax, x, y, w=1.0, h=0.4, label=""):
     rect = plt.Rectangle((x, y-h/2), w, h, fill=False, edgecolor="black", lw=2)
@@ -25,7 +26,7 @@ ax.axis("off")
 
 # Fonte
 ax.plot([0,0],[0,2], color="black", lw=0)
-ax.text(0.0, 1, f"V = {V} V\n60Hz", va="center", ha="left")
+ax.text(0.0, 1, f"V = {V} V\n {f} Hz", va="center", ha="left")
 
 # Série
 bloco(ax, 0, 2, w=1.5, label=z1)
