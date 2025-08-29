@@ -1,5 +1,6 @@
 import streamlit as st
 import matplotlib.pyplot as plt
+import matplotlib.transforms as transforms
 
 st.title("🔌 Diagrama de Circuito com Impedâncias (Blocos Retangulares)")
 
