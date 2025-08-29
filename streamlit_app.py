@@ -13,7 +13,7 @@ z6 = st.text_input("Impedância paralelo (ramo inferior 2)", "1kΩ")
 V = 220
 f = 60
 
-def bloco(ax, x, y, w=1.0, h=0.4, label="", rot=0):
+def bloco(ax, x, y, w=1.0, h=0.2, label="", rot=0):
     # Cria retângulo
     rect = plt.Rectangle((x, y-h/2), w, h, fill=False, edgecolor="black", lw=2)
     
@@ -41,7 +41,7 @@ ax.plot([0,0],[0,2], color="black", lw=0)
 ax.text(0.0, 1, f"V = {V} V\n  {f} Hz", va="center", ha="left")
 
 # Série
-bloco(ax, 0, 3, w=1, h = 0.2, label=z1)
+bloco(ax, 0, 3, w=1, label=f"{z1} Ω")
 bloco(ax, 2, 3, w=1, label=z2)
 
 # Nó superior
