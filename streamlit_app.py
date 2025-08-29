@@ -47,11 +47,12 @@ bloco(ax, 2, 3, w=1, label=z2)
 ax.plot([3,4],[3,3], color="red", lw=2)
 
 # Nó superior
-ax.plot([4,4],[3,2.8], color="red", lw=2)
+ax.plot([4,4],[3,2.6], color="red", lw=2)
 
 # Linha de conexão
-ax.plot([3,5],[2.8,2.8], color="green", lw=2)
+ax.plot([3,5],[2.6,2.6], color="red", lw=2)
 
+bloco(ax, 3, 2.6, w=1.5, label="Xm", r = 90)
 
 # Ramo paralelo (cima)
 bloco(ax, 3.5, 3, w=1.5, label=z3)
