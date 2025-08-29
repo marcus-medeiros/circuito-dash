@@ -47,7 +47,7 @@ bloco(ax, 2, 3, w=1, label=z2)
 ax.plot([3,4],[3,3], color="red", lw=2)
 
 # Nó superior
-ax.plot([4,4],[3,2], color="red", lw=2)
+ax.plot([4,4],[3,2.8], color="red", lw=2)
 
 # Ramo paralelo (cima)
 bloco(ax, 3.5, 3, w=1.5, label=z3)
