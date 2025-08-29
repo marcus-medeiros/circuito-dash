@@ -44,7 +44,7 @@ ax.text(0.0, 1, f"V = {V} V\n  {f} Hz", va="center", ha="left")
 bloco(ax, 0, 3, w=1, label=f"{z1} Ω")
 bloco(ax, 2, 3, w=1, label=z2)
 
-ax.plot([4,5],[4,6], color="red", lw=2)
+ax.plot([2,2],[2,3], color="red", lw=2)
 
 # Nó superior
 ax.plot([3.5,3.5],[2,3], color="black", lw=2)
