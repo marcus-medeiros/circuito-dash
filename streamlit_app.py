@@ -29,8 +29,8 @@ ax.plot([0,0],[0,2], color="black", lw=0)
 ax.text(0.0, 1, f"V = {V} V\n  {f} Hz", va="center", ha="left")
 
 # Série
-bloco(ax, 0, 2, w=1.5, label=z1)
-bloco(ax, 2, 2, w=1.5, label=z2)
+bloco(ax, 0, 4, w=1.5, label=z1)
+bloco(ax, 2, 4, w=1.5, label=z2)
 
 # Nó superior
 ax.plot([3.5,3.5],[2,3], color="black", lw=2)
