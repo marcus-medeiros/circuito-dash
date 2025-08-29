@@ -50,7 +50,7 @@ ax.plot([3,4],[3,3], color="red", lw=2)
 ax.plot([4,4],[3,2.8], color="red", lw=2)
 
 # Linha de conexão
-ax.plot([2,5],[2.8,2.8], color="green", lw=2)
+ax.plot([3,5],[2.8,2.8], color="green", lw=2)
 
 
 # Ramo paralelo (cima)
