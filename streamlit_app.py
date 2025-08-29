@@ -23,7 +23,7 @@ fig, ax = plt.subplots(figsize=(7,6))
 ax.axis("off")
 
 # Fonte
-ax.plot([0,0],[0,2], color="black", lw=2)
+ax.plot([0,0],[0,2], color="black", lw=0)
 ax.text(0.5,1,"Fonte\n60Hz", va="center")
 
 # Série
@@ -31,7 +31,7 @@ bloco(ax, 0, 2, w=1.5, label=z1)
 bloco(ax, 2, 2, w=1.5, label=z2)
 
 # Nó superior
-ax.plot([3.5,3.5],[2,3], color="black", lw=1)
+ax.plot([3.5,3.5],[2,3], color="black", lw=2)
 
 # Ramo paralelo (cima)
 bloco(ax, 3.5, 3, w=1.5, label=z3)
