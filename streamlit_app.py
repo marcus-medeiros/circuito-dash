@@ -13,12 +13,24 @@ z6 = st.text_input("Impedância paralelo (ramo inferior 2)", "1kΩ")
 V = 220
 f = 60
 
-def bloco(ax, x, y, w=1.0, h=0.4, label=""):
+def bloco(ax, x, y, w=1.0, h=0.4, label="", rot=0):
+    # Cria retângulo
     rect = plt.Rectangle((x, y-h/2), w, h, fill=False, edgecolor="black", lw=2)
+    
+    if rot != 0:
+        # Rotaciona o retângulo em torno do centro
+        t = transforms.Affine2D().rotate_deg_around(x + w/2, y, rot) + ax.transData
+        rect.set_transform(t)
+    
     ax.add_patch(rect)
-    ax.text(x+w/2, y+h, label, ha="center", va="bottom", fontsize=10)
-    ax.plot([x-w*0.2, x],[y, y], color="black", lw=2) # entrada
-    ax.plot([x+w, x+w+w*0.2],[y, y], color="black", lw=2) # saída
+    
+    # Adiciona texto rotacionado
+    ax.text(x + w/2, y + h, label, ha="center", va="bottom", fontsize=10, rotation=rot)
+    
+    # Linhas de entrada e saída (não rotacionadas, pois geralmente são horizontais)
+    ax.plot([x - w*0.2, x], [y, y], color="black", lw=2)   # entrada
+    ax.plot([x + w, x + w + w*0.2], [y, y], color="black", lw=2)  # saída
+
 
 # Criar figura
 fig, ax = plt.subplots(figsize=(7,6))
